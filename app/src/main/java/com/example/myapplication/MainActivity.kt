@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
         val nunitoFont: Typeface = Typeface.createFromAsset(assets, "fonts/nunito_semibold_italic.ttf")
         val address1TextView: TextView = findViewById(R.id.desctxt)
         address1TextView.typeface = nunitoFont
-        val loginbtn:Button = findViewById(R.id.loginbtn)
+        val insertbtn:Button = findViewById(R.id.insertbtn)
         val login = Login()
-        loginbtn.setOnClickListener{
+        insertbtn.setOnClickListener{
             val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(android.R.id.content, login)

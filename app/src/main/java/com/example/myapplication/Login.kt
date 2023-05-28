@@ -46,30 +46,14 @@ class Login : DialogFragment(R.layout.login) {
             values.put(Book.GENRE, genre.text.toString())
 
             val uri = contentResolver.insert(Book.CONTENT_URI, values)
-            Toast.makeText(requireContext(), uri.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Added Successfully", Toast.LENGTH_LONG).show()
 
         }
-        }
-
-
-
     }
 
-    fun onClickAddName() {
-
-        val contentResolver = requireContext().contentResolver
 
 
-        val values = ContentValues()
-        values.put(Book.NAME, )
-        values.put(Book.PAGES, 255)
-        values.put(Book.AUTHOR, "AUTHOR1")
-        values.put(Book.PRICE, 25)
-        values.put(Book.GENRE, "ACTION")
-
-        val uri = contentResolver.insert(Book.CONTENT_URI, values)
-        Toast.makeText(requireContext(), uri.toString(), Toast.LENGTH_LONG).show()
-
-    }
 
 }
+
+
