@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:id="@+id/backimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+
+    <TextView
+        android:id="@+id/desctxt"
+        android:layout_width="347dp"
+        android:layout_height="159dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="8dp"
+        android:background="#904C6085"
+        android:gravity="left"
+        android:justificationMode="inter_word"
+        android:lines="8"
+        android:maxLines="8"
+        android:text="lntroducing ldiomaPro, the ultimate language learning companion for all your language acquisition needs. With our app, you can easily plan and start learning a new language with just a few taps. From finding the perfect course to creating a customized study plan, ldiomaPro has got you covered. Our app ofiers a wide range of courses, to ensure that your language learning experience is nothing short of perfect!"
+        android:textColor="#F5F9E9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
     <Button
-        android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="324dp" />
+        android:id="@+id/loginbtn"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="208dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="Insert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/registerbtn"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="208dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="Show"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoimg"
+        android:layout_width="262dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="44dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backtry" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

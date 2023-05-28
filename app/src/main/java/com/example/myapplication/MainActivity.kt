@@ -1,23 +1,33 @@
 package com.example.myapplication
 
 import android.content.*
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val add:Button=findViewById(R.id.addBtn)
-        add.setOnClickListener(){
-            onClickAddName()
-        }
+        val imageView: ImageView = findViewById(R.id.backimg);
+        imageView.setBackgroundResource(R.drawable.background_image)
+        val nunitoFont: Typeface = Typeface.createFromAsset(assets, "fonts/nunito_semibold_italic.ttf")
+        val address1TextView: TextView = findViewById(R.id.desctxt)
+        address1TextView.typeface = nunitoFont
+        val loginbtn:Button = findViewById(R.id.loginbtn)
+        //val login = Login()
+//        loginbtn.setOnClickListener{
+//            val fragmentManager: FragmentManager = supportFragmentManager
+//            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+//            fragmentTransaction.replace(android.R.id.content, login)
+//            fragmentTransaction.addToBackStack(null)
+//            fragmentTransaction.commit()
+//        }
     }
 
 
