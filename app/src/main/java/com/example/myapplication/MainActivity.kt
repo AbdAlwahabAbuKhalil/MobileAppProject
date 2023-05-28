@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.project.Login
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,14 +21,14 @@ class MainActivity : AppCompatActivity() {
         val address1TextView: TextView = findViewById(R.id.desctxt)
         address1TextView.typeface = nunitoFont
         val loginbtn:Button = findViewById(R.id.loginbtn)
-        //val login = Login()
-//        loginbtn.setOnClickListener{
-//            val fragmentManager: FragmentManager = supportFragmentManager
-//            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-//            fragmentTransaction.replace(android.R.id.content, login)
-//            fragmentTransaction.addToBackStack(null)
-//            fragmentTransaction.commit()
-//        }
+        val login = Login()
+        loginbtn.setOnClickListener{
+            val fragmentManager: FragmentManager = supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(android.R.id.content, login)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
     }
 
 
@@ -38,37 +39,6 @@ class MainActivity : AppCompatActivity() {
 //    val AUTHOR="author"
 //    val PRICE="price"
 //    val GENRE="genre"
-    fun onClickAddName() {
 
-        val values = ContentValues()
-        values.put(
-            Book.NAME,
-            "Book1"
-
-        )
-        values.put(
-            Book.PAGES,
-           255
-        )
-        values.put(
-            Book.AUTHOR,
-            "AUTHOR1"
-        )
-
-    values.put(
-        Book.PRICE,
-       25
-    )
-    values.put(
-        Book.GENRE,
-        "ACTION"
-    )
-        val uri = contentResolver.insert(
-            Book.CONTENT_URI, values
-        )
-        Toast.makeText(baseContext, uri.toString(), Toast.LENGTH_LONG).show()
-
-
-    }
 
 }
