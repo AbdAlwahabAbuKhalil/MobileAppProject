@@ -21,11 +21,21 @@ class MainActivity : AppCompatActivity() {
         val address1TextView: TextView = findViewById(R.id.desctxt)
         address1TextView.typeface = nunitoFont
         val insertbtn:Button = findViewById(R.id.insertbtn)
+        val showBtn:Button=findViewById(R.id.registerbtn)
         val login = Login()
+        val show=Show()
         insertbtn.setOnClickListener{
             val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(android.R.id.content, login)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+
+        showBtn.setOnClickListener(){
+            val fragmentManager: FragmentManager = supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(android.R.id.content, show)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
