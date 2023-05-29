@@ -1,14 +1,10 @@
 package com.example.myapplication
 
 import android.content.ContentValues
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import com.example.myapplication.Book
 
 
 class Update : DialogFragment(R.layout.update) {
@@ -83,6 +79,7 @@ class Update : DialogFragment(R.layout.update) {
             // Close the dialog fragment
             dismiss()
         }
+
     }
 
 
