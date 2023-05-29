@@ -1,15 +1,16 @@
 package com.example.myapplication
 
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import com.example.myapplication.Book
-import com.example.myapplication.R
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
-class Show: DialogFragment(R.layout.showpage) {
+class Show: DialogFragment(R.layout.showpage), AdapterView.OnItemClickListener {
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val imageView: ImageView = view.findViewById(R.id.backimg)
         imageView.setBackgroundResource(R.drawable.background_image)
@@ -18,6 +19,7 @@ class Show: DialogFragment(R.layout.showpage) {
         val listView: ListView = view.findViewById(R.id.listBooks)
         val URL="content://com.example.MyApplication.Book"
         val books= Uri.parse(URL)
+        listView.onItemClickListener = this
 
 
 
@@ -84,9 +86,25 @@ class Show: DialogFragment(R.layout.showpage) {
                 return  false
             }
         })
+
+
     }
 
+    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        val selectedItem = p0?.getItemAtPosition(p2) as String
 
+        // Perform any necessary actions with the selected item
+        // ...
+
+        // Create an instance of your update dialog fragment and pass the selected item (book name)
+        val updateDialogFragment = Update.newInstance(selectedItem)
+
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(android.R.id.content, updateDialogFragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
 
 
 }
