@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+>
 
     <ImageView
         android:id="@+id/backimg"
@@ -11,94 +12,22 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
-    <Button
-        android:id="@+id/insertbtn"
-        android:layout_width="178dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginBottom="88dp"
-        android:background="@drawable/rounded_button_background"
-        android:text="insert"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/backbtn"
-        android:layout_width="178dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="88dp"
-        android:background="@drawable/rounded_button_background"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/nameview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="204dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/pagesview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="276dp"
-        android:text="Pages No."
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/authorview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="348dp"
-        android:text="Author"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/priceview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="420dp"
-        android:text="Price"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/genreview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="492dp"
-        android:text="Genre"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/nametxt"
+        android:id="@+id/genretxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="64dp"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pagesnum"
+        android:id="@+id/pricenum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="376dp"
         android:layout_marginEnd="68dp"
         android:ems="10"
         android:inputType="number"
@@ -109,31 +38,109 @@
         android:id="@+id/authortxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="64dp"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pricenum"
+        android:id="@+id/pagesnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="64dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/genretxt"
+        android:id="@+id/nametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="64dp"
         android:ems="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/genreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="464dp"
+        android:text="Genre"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    <android:background="#8C7676">-->
+
+    <TextView
+        android:id="@+id/priceview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="392dp"
+        android:textColor="#FFFFFF"
+        android:text="Price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/authorview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="320dp"
+        android:text="Author"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pagesview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="248dp"
+        android:text="Pages No."
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="176dp"
+        android:text="Name"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="112dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/insertbtn"
+        android:layout_width="178dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="112dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="insert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
