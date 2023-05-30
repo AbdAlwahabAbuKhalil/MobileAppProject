@@ -133,7 +133,8 @@ class Book : ContentProvider(){
 
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
         var count = 0
-        when (uriMatcher!!.match(uri)) {
+        if(uriMatcher!=null) {
+        when (uriMatcher.match(uri)) {
             STUDENTS -> count = db!!.delete(
                 Book_TABLE_NAME, selection,
                 selectionArgs
@@ -149,6 +150,7 @@ class Book : ContentProvider(){
             }
             else -> throw IllegalArgumentException("Unknown URI $uri")
         }
+    }
         context!!.contentResolver.notifyChange(uri, null)
         return count
 
@@ -160,7 +162,7 @@ class Book : ContentProvider(){
                             selectionArgs: Array<String>?
     ): Int {
         var count = 0
-        when (uriMatcher!!.match(uri)) {
+        when (sUriMatcher.match(uri)) {
             STUDENTS -> count = db!!.update(
                 Book_TABLE_NAME, values, selection,
                 selectionArgs

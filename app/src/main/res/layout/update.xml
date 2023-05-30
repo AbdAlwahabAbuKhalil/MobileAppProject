@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="64dp" />
 
     <Button
-        android:id="@+id/deletebtn"
+        android:id="@+id/deleteBtn"
         android:layout_width="178dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/updatebtn"
+        android:id="@+id/updateBtn"
         android:layout_width="178dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"

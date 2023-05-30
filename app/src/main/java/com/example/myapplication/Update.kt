@@ -54,7 +54,7 @@ class Update : DialogFragment(R.layout.update) {
         }
         cursor?.close()
 
-        val updateButton: Button = view.findViewById(R.id.updatebtn)
+        val updateButton:Button=view.findViewById(R.id.updateBtn)
         updateButton.setOnClickListener {
             // Retrieve the new values from the EditText views
             val newPages = pagesTextView.text.toString().toInt()
@@ -69,7 +69,9 @@ class Update : DialogFragment(R.layout.update) {
             contentValues.put(Book.PRICE, newPrice)
             contentValues.put(Book.GENRE, newGenre)
 
-            requireContext().contentResolver.update(
+
+
+            val count=requireContext().contentResolver.update(
                 Book.CONTENT_URI,
                 contentValues,
                 "${Book.NAME} = ?",
@@ -77,7 +79,20 @@ class Update : DialogFragment(R.layout.update) {
             )
 
             // Close the dialog fragment
+            Toast.makeText(requireContext(), "Updated Successfully", Toast.LENGTH_LONG).show()
             dismiss()
+        }
+
+        val deleteBtn:Button=view.findViewById(R.id.deleteBtn)
+        deleteBtn.setOnClickListener(){
+            val count=requireContext().contentResolver.delete(
+                Book.CONTENT_URI,
+                "${Book.NAME} = ?",
+                arrayOf("bookName")
+            )
+            Toast.makeText(requireContext(), count.toString(), Toast.LENGTH_LONG).show()
+            dismiss()
+
         }
 
     }
