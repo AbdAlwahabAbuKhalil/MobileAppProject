@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.project.Login
@@ -24,15 +26,18 @@ class MainActivity : AppCompatActivity() {
         val showBtn:Button=findViewById(R.id.registerbtn)
         val login = Login()
         val show=Show()
+
         insertbtn.setOnClickListener{
             val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(android.R.id.content, login)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
+            startService()
+            //stopService()
         }
 
-        showBtn.setOnClickListener(){
+        showBtn.setOnClickListener{
             val fragmentManager: FragmentManager = supportFragmentManager
             val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(android.R.id.content, show)
@@ -41,14 +46,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
-//    val _ID="_id"
-//    val NAME="name"
-//    val PAGES="pages"
-//    val AUTHOR="author"
-//    val PRICE="price"
-//    val GENRE="genre"
+    fun startService() {
+        val serviceIntent = Intent(this, MyService::class.java)
+        serviceIntent.putExtra("inputExtra", "Welcome!, You can add a book to the library now!")
+        ContextCompat.startForegroundService(this, serviceIntent)
+    }
+    fun stopService() {
+           val serviceIntent = Intent(this, MyService::class.java)
+           stopService(serviceIntent)
+    }
 
 
 }

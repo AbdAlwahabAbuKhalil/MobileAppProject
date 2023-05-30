@@ -17,6 +17,8 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.provider.AlarmClock
+import com.example.myapplication.MainActivity
+import com.example.myapplication.MyService
 
 class Login : DialogFragment(R.layout.login) {
 
@@ -34,6 +36,13 @@ class Login : DialogFragment(R.layout.login) {
 
         val backbtn: Button = view.findViewById(R.id.backbtn)
         backbtn.setOnClickListener {
+            //To stop the notification
+                if (requireActivity() is MainActivity) {
+                    val mainActivity = requireActivity() as MainActivity
+                    mainActivity.stopService()
+                }
+
+
             dismiss() // Dismiss the dialog
             requireActivity().supportFragmentManager.popBackStack() // Pop the fragment from the back stack
         }
