@@ -88,9 +88,9 @@ class Update : DialogFragment(R.layout.update) {
             val count=requireContext().contentResolver.delete(
                 Book.CONTENT_URI,
                 "${Book.NAME} = ?",
-                arrayOf("bookName")
+                arrayOf(bookName)
             )
-            Toast.makeText(requireContext(), count.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Deleted Successfully", Toast.LENGTH_LONG).show()
             dismiss()
 
         }

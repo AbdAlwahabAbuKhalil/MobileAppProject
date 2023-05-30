@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.*
 import android.database.Cursor
 import android.database.SQLException
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
@@ -131,53 +132,88 @@ class Book : ContentProvider(){
 
     }
 
-    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
-        var count = 0
-        if(uriMatcher!=null) {
-        when (uriMatcher.match(uri)) {
-            STUDENTS -> count = db!!.delete(
-                Book_TABLE_NAME, selection,
-                selectionArgs
-            )
-            STUDENT_ID -> {
-                val id = uri.pathSegments[1]
-                count = db!!.delete(
-                    Book_TABLE_NAME,
-                    _ID + " = " + id +
-                            if (!TextUtils.isEmpty(selection)) " AND ($selection)" else "",
-                    selectionArgs
-                )
-            }
-            else -> throw IllegalArgumentException("Unknown URI $uri")
-        }
-    }
-        context!!.contentResolver.notifyChange(uri, null)
-        return count
+//    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
+//        var count = 0
+//        if(uriMatcher!=null) {
+//        when (uriMatcher.match(uri)) {
+//            STUDENTS -> count = db!!.delete(
+//                Book_TABLE_NAME, selection,
+//                selectionArgs
+//            )
+//            STUDENT_ID -> {
+//                val id = uri.pathSegments[1]
+//                count = db!!.delete(
+//                    Book_TABLE_NAME,
+//                    _ID + " = " + id +
+//                            if (!TextUtils.isEmpty(selection)) " AND ($selection)" else "",
+//                    selectionArgs
+//                )
+//            }
+//            else -> throw IllegalArgumentException("Unknown URI $uri")
+//        }
+//    }
+//        context!!.contentResolver.notifyChange(uri, null)
+//        return count
+//
+//    }
+override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
+//    var count = 0
+//    if (uriMatcher != null) {
+//        when (uriMatcher.match(uri)) {
+//            STUDENTS -> count = db!!.delete(
+//                Book_TABLE_NAME,
+//                selection,
+//                selectionArgs
+//            )
+//            STUDENT_ID -> {
+//                val id = uri.pathSegments[1]
+//                val modifiedSelection = if (selection != null) {
+//                    "$_ID = $id AND ($selection)"
+//                } else {
+//                    "$_ID = $id"
+//                }
+//                count = db!!.delete(
+//                    Book_TABLE_NAME,
+//                    modifiedSelection,
+//                    selectionArgs
+//                )
+//            }
+//            else -> throw IllegalArgumentException("Unknown URI $uri")
+//        }
+//    }
+//    context!!.contentResolver.notifyChange(uri, null)
+//    return count
 
-    }
+    var count:Int= db!!.delete("Book",selection,selectionArgs)
+    context?.contentResolver?.notifyChange(uri,null)
+    return count
+}
+
 
     override fun update(    uri: Uri,
                             values: ContentValues?,
                             selection: String?,
                             selectionArgs: Array<String>?
     ): Int {
-        var count = 0
-        when (sUriMatcher.match(uri)) {
-            STUDENTS -> count = db!!.update(
-                Book_TABLE_NAME, values, selection,
-                selectionArgs
-            )
-            STUDENT_ID -> count = db!!.update(
-                Book_TABLE_NAME,
-                values,
-                _ID + " = " + uri.pathSegments[1] + (if (!TextUtils.isEmpty(selection)) " AND ($selection)" else ""),
-                selectionArgs
-            )
-            else -> throw IllegalArgumentException("Unknown URI $uri")
-        }
-        context!!.contentResolver.notifyChange(uri, null)
+//        var count = 0
+//        when (sUriMatcher.match(uri)) {
+//            STUDENTS -> count = db!!.update(
+//                Book_TABLE_NAME, values, selection,
+//                selectionArgs
+//            )
+//            STUDENT_ID -> count = db!!.update(
+//                Book_TABLE_NAME,
+//                values,
+//                _ID + " = " + uri.pathSegments[1] + (if (!TextUtils.isEmpty(selection)) " AND ($selection)" else ""),
+//                selectionArgs
+//            )
+//            else -> throw IllegalArgumentException("Unknown URI $uri")
+//        }
+//        context!!.contentResolver.notifyChange(uri, null)
+//        return count
+        var count:Int= db!!.update("Book",values,selection,selectionArgs)
+        context?.contentResolver?.notifyChange(uri,null)
         return count
-
     }
 
 }
